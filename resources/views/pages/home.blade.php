@@ -1,5 +1,5 @@
-{{-- @extends('layouts.app') --}}
-{{-- 
+@extends('layouts.app')
+
 @section('title')
     EASYTOPUP Homepage
 @endsection
@@ -13,28 +13,28 @@
             <div class="col-lg-12" data-aos="zoom-in">
               <div id="banner" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                  @php
+                  {{-- @php
                   $data = 0
-                @endphp
-                @foreach ($banner as $b)
-                  <li class="active" data-target="#banner" data-slide-to="{{ $data += 1 }}"></li>
-                @endforeach
-                </ol>
-                <div class="carousel-inner">
-                  @foreach ($banner as $banners )
-                  <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                    <img src="{{ Storage::url($banners->photo) }}" alt="" class="d-block w-100" />
-                  </div>
-                  @endforeach
-                </div>
-                <a class="carousel-control-prev" href="#banner" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#banner" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
+                // @endphp
+                // @foreach ($banner as $b)
+                //   <li class="active" data-target="#banner" data-slide-to="{{ $data += 1 }}"></li>
+                // @endforeach
+                // </ol>
+                // <div class="carousel-inner">
+                //   @foreach ($banner as $banners )
+                //   <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                //     <img src="{{ Storage::url($banners->photo) }}" alt="" class="d-block w-100" />
+                //   </div>
+                //   @endforeach
+                // </div>
+                // <a class="carousel-control-prev" href="#banner" role="button" data-slide="prev">
+                //   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                //   <span class="sr-only">Previous</span>
+                // </a>
+                // <a class="carousel-control-next" href="#banner" role="button" data-slide="next">
+                //   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                //   <span class="sr-only">Next</span>
+                // </a> --}}
               </div>
             </div>
           </div>
@@ -48,7 +48,7 @@
             </div>
           </div>
           <div class="row">
-            @php $incrementCategory = 0 @endphp
+            {{-- @php $incrementCategory = 0 @endphp
             @forelse ($categories as $category)
                 <div class="col-6 col-md-3 col-lg-2" data-aos="fade-up" data-aos-delay="{{ $incrementCategory+= 100 }}">
                   <a href="{{ route('categories-detail', $category->slug) }}" class="component-categories d-block">
@@ -62,7 +62,7 @@
                 <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
                   No Categories Found
                 </div>
-            @endforelse
+            @endforelse --}}
           </div>
         </div>
       </section>
@@ -75,7 +75,7 @@
             </div>
           </div>
           <div class="row">
-            @php $incrementProduct = 0 @endphp
+            {{-- @php $incrementProduct = 0 @endphp
             @forelse ($products as $product)
                 <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="{{ $incrementProduct+= 100 }}">
                   <a href="{{ route('detail', $product->slug) }}" class="component-products d-block"
@@ -94,9 +94,9 @@
                 <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
                   No Products Found
                 </div>
-            @endforelse
+            @endforelse --}}
           </div>
         </div>
       </section>
     </div>
-@endsection --}}
+@endsection

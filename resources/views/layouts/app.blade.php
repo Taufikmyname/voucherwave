@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    s
+
     <title>@yield('title')</title>
 
     {{-- Style --}}
+    <script src="https://cdn.tailwindcss.com"></script>
     @stack('prepend-style')
     @include('includes.style')
     @stack('addon-style')
@@ -20,15 +21,15 @@
     @include('includes.navbar')
 
     {{-- Page Content --}}
-    @yield('content')
+    {{-- @yield('content') --}}
     
     {{-- Footer --}}
-    @include('includes.footer')
+    {{-- @include('includes.footer') --}}
 
     {{-- Script --}}
-    @stack('prepend-script')
+    {{-- @stack('prepend-script')
     @include('includes.script')
     @stack('addon-script')
-    
+     --}}
   </body>
 </html>
