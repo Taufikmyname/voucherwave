@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+{{-- @extends('layouts.app') --}}
+{{-- 
 @section('title')
     EASYTOPUP Homepage
 @endsection
@@ -99,4 +99,4 @@
         </div>
       </section>
     </div>
-@endsection
+@endsection --}}
