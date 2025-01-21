@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-    EASYTOPUP Dashboard Transaction
+    Voucher Wave Dashboard Transaction
 @endsection
 
 @section('content')

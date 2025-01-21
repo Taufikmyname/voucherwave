@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    EASYTOPUP Dashboard
+Voucher Wave Dashboard
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
             <div class="container-fluid">
               <div class="dashboard-heading">
                 <h2 class="dashboard-title">Admin Dashboard</h2>
-                <p class="dashboard-subtitle">This is EASYTOPUP Administrator Panel</p>
+                <p class="dashboard-subtitle">This is Voucher Wave Administrator Panel</p>
               </div>
               <div class="dashboard-content">
                 <div class="row">

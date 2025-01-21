@@ -1,7 +1,7 @@
 @extends('layouts.success')
 
 @section('title')
-    EASYTOPUP Success Page
+    Voucher Wave Success Page
 @endsection
 
 @section('content')

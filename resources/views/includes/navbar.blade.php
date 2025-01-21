@@ -13,29 +13,20 @@
     <div class="flex flex-1 items-center justify-end md:justify-between">
       <nav aria-label="Global" class="hidden md:block">
         <ul class="flex items-center gap-6 text-sm">
-          <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> About </a>
+          <li class="nav-item">
+            <a href="{{ route('home') }}" class="nav-link">Home</a>
           </li>
-
-          <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Careers </a>
+          <li class="nav-item">
+            <a href="{{ route('categories') }}" class="nav-link">Categories</a>
           </li>
-
-          <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> History </a>
+          @guest
+              <li class="nav-item">
+            <a href="{{ route('register') }}" class="nav-link">Sign Up</a>
           </li>
-
-          <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Services </a>
+          <li class="nav-item">
+            <a href="{{ route('login') }}" class="btn btn-success nav-link px-4 text-white">Sign in</a>
           </li>
-
-          <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Projects </a>
-          </li>
-
-          <li>
-            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Blog </a>
-          </li>
+          @endguest
         </ul>
       </nav>
 

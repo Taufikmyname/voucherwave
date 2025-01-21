@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    EASYTOPUP Dashboard Transaction Detail
+    Voucher Wave Dashboard Transaction Detail
 @endsection
 
 @section('content')

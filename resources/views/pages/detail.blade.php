@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    EASYTOPUP Detail Page
+    Voucher Wave Detail Page
 @endsection
 
 @section('content')

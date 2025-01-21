@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    EASYTOPUP Homepage
+    Voucher Wave Homepage
 @endsection
   
 

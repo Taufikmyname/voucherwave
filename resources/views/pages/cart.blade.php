@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    EASYTOPUP Cart Page
+Voucher Wave Cart Page
 @endsection
 
 @section('content')

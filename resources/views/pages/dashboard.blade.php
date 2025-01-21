@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-    EASYTOPUP Dashboard
+    Voucher Wave Dashboard
 @endsection
 
 @section('content')
