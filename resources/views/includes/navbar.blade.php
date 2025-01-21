@@ -19,32 +19,26 @@
           <li class="nav-item">
             <a href="{{ route('categories') }}" class="nav-link">Categories</a>
           </li>
-          @guest
-              <li class="nav-item">
-            <a href="{{ route('register') }}" class="nav-link">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('login') }}" class="btn btn-success nav-link px-4 text-white">Sign in</a>
-          </li>
-          @endguest
         </ul>
       </nav>
 
       <div class="flex items-center gap-4">
         <div class="sm:flex sm:gap-4">
+          @guest
           <a
             class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
-            href="#"
+            href="{{ route('login') }}"
           >
             Login
           </a>
 
           <a
             class="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
-            href="#"
+            href="{{ route('register') }}"
           >
             Register
           </a>
+          @endguest
         </div>
 
         <button
