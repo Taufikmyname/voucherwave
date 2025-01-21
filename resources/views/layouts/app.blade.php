@@ -21,10 +21,10 @@
     @include('includes.navbar')
 
     {{-- Page Content --}}
-    {{-- @yield('content') --}}
+    @yield('content')
     
     {{-- Footer --}}
-    {{-- @include('includes.footer') --}}
+    @include('includes.footer')
 
     {{-- Script --}}
     {{-- @stack('prepend-script')
