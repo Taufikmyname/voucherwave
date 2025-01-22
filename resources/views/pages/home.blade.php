@@ -13,28 +13,28 @@
             <div class="col-lg-12" data-aos="zoom-in">
               <div id="banner" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                  {{-- @php
+                  @php
                   $data = 0
-                // @endphp
-                // @foreach ($banner as $b)
-                //   <li class="active" data-target="#banner" data-slide-to="{{ $data += 1 }}"></li>
-                // @endforeach
-                // </ol>
-                // <div class="carousel-inner">
-                //   @foreach ($banner as $banners )
-                //   <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                //     <img src="{{ Storage::url($banners->photo) }}" alt="" class="d-block w-100" />
-                //   </div>
-                //   @endforeach
-                // </div>
-                // <a class="carousel-control-prev" href="#banner" role="button" data-slide="prev">
-                //   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                //   <span class="sr-only">Previous</span>
-                // </a>
-                // <a class="carousel-control-next" href="#banner" role="button" data-slide="next">
-                //   <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                //   <span class="sr-only">Next</span>
-                // </a> --}}
+                @endphp
+                @foreach ($banner as $b)
+                  <li class="active" data-target="#banner" data-slide-to="{{ $data += 1 }}"></li>
+                @endforeach
+                </ol>
+                <div class="carousel-inner">
+                  @foreach ($banner as $banners )
+                  <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                    <img src="{{ Storage::url($banners->photo) }}" alt="" class="d-block w-100" />
+                  </div>
+                  @endforeach
+                </div>
+                <a class="carousel-control-prev" href="#banner" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#banner" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
               </div>
             </div>
           </div>

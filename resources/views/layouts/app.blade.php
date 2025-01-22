@@ -9,11 +9,11 @@
     <title>@yield('title')</title>
 
     {{-- Style --}}
-    <script src="https://cdn.tailwindcss.com"></script>
+
     @stack('prepend-style')
     @include('includes.style')
     @stack('addon-style')
-    <link href="/dist/main.css" rel="stylesheet">
+    @vite(['resources/css/app.css','resources/js/app.js'])
   </head>
 
   <body>
