@@ -11,7 +11,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12" data-aos="zoom-in">
-              <div id="banner" class="carousel slide" data-ride="carousel">
+              {{-- <div id="banner" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                   @php
                   $data = 0
@@ -35,7 +35,7 @@
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
                 </a>
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>
