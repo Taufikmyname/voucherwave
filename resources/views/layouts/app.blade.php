@@ -9,7 +9,6 @@
     <title>@yield('title')</title>
 
     {{-- Style --}}
-
     @stack('prepend-style')
     @include('includes.style')
     @stack('addon-style')
