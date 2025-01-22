@@ -25,7 +25,12 @@
         </ul>
       </div>
 
-      <div class="flex items-center lg:space-x-2">
+      <button type="button" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
+        <span class="sr-only">Open user menu</span>
+        <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+      </button>
+
+      {{-- <div class="flex items-center lg:space-x-2">
         <div class="flex items-center gap-4">
           <div class="sm:flex sm:gap-4">
             @guest
@@ -38,8 +43,119 @@
             </a>
             @endguest
           </div>
-      </div>
-    </div>
+          @auth
+              <ul class="navbar-nav d-none d-lg-flex">
+            <li class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+              >
+                @if ($user->photo != null)
+                  <img src="{{ Storage::url($user->photo) }}" class="rounded-circle mr-2 profile-picture">
+                @else
+                  <img src="/images/icon-testimonial-2.png" class="rounded-circle mr-2 profile-picture">
+                @endif
+                Hi, {{ Auth::user()->name }}
+              </a>
+              <div class="dropdown-menu">
+                @if (Auth::user()->roles == 'ADMIN')  
+                  <a href="{{ route('admin-dashboard') }}" class="dropdown-item">Dashboard</a>
+                @else
+                <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
+                <a href="{{ route('dashboard-account') }}" class="dropdown-item"
+                  >Settings</a
+                >
+                @endif
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </div>
+            </li>
+            @if (Auth::user()->roles == 'USER')  
+            <li class="nav-item">
+              <a href="{{ route('cart') }}" class="nav-link d-inline-block mt-2">
+                @php
+                  $carts = \App\Cart::where('users_id', Auth::user()->id)->count();
+                @endphp
+                @if ($carts > 0)
+                  <img src="/images/icon-cart-filled.svg" alt="" />
+                  <div class="card-badge">{{ $carts }}</div>
+                @else
+                  <img src="/images/icon-cart-empty.svg" alt="" />
+                @endif
+              </a>
+            </li>
+            @endif
+          </ul>
 
+          <ul class="navbar-nav d-block d-lg-none">
+            <li class="nav-item">
+              @if (Auth::user()->roles == 'ADMIN')  
+                <a href="{{ route('admin-dashboard') }}" class="nav-link">Hi, {{ Auth::user()->name }}</a>
+              @else
+              <a href="{{ route('dashboard') }}" class="nav-link">
+                Hi, {{ Auth::user()->name }}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('cart') }}" class="nav-link d-inline-block">
+                Cart
+              </a>
+            </li>
+            @endif
+            <li class="nav-item">
+              <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
+            </li>
+          </ul>
+          @endauth
+        </div>
+      </div> --}}
+
+      
+
+        
+
+      <!-- Dropdown menu -->
+      <div class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown">
+        <div class="py-3 px-4">
+            @if (Auth::user()->roles == 'ADMIN')  
+              <a href="{{ route('admin-dashboard') }}" class="py-1 text-black dark:text-black">Hi, {{ Auth::user()->name }}</a>
+            @else
+            <a href="{{ route('dashboard') }}" class="py-1 text-black dark:text-black">
+              Hi, {{ Auth::user()->name }}
+            </a>
+              <li>
+                <a href="{{ route('cart') }}" class="flex items-center py-4 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+                  </svg>
+                    Carts
+                </a>
+              </li>
+            @endif
+        </div>
+        <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
+            <li>
+                <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">My profile</a>
+            </li>
+            <li>
+                <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Account settings</a>
+            </li>
+        </ul>
+
+        <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
+            <li>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log out</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+            </li>
+        </ul>
+      </div>
   </div>
 </nav>
