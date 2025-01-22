@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -15,7 +16,7 @@ use App\Http\Controllers\HomeController;
 */
 Route::get('/', [HomeController::class,'index'])->name('home');
 
-Route::get('/categories', 'CategoryController@index')->name('categories');
+Route::get('/categories', [CategoryController::class,'index'])->name('categories');
 Route::get('/categories/{id}', 'CategoryController@detail')->name('categories-detail');
 
 Route::get('/details/{id}', 'DetailController@index')->name('detail');
