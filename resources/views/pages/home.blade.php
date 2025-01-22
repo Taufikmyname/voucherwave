@@ -75,7 +75,7 @@
             </div>
           </div>
           <div class="row">
-            {{-- @php $incrementProduct = 0 @endphp
+            @php $incrementProduct = 0 @endphp
             @forelse ($products as $product)
                 <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="{{ $incrementProduct+= 100 }}">
                   <a href="{{ route('detail', $product->slug) }}" class="component-products d-block"
@@ -94,7 +94,7 @@
                 <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
                   No Products Found
                 </div>
-            @endforelse --}}
+            @endforelse
           </div>
         </div>
       </section>
