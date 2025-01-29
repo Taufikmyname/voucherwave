@@ -19,6 +19,8 @@ class DashboardSettingController extends Controller
     public function update(Request $request, $redirect)
     {
         $data = ($request->except('nickname','game_id','server_id'));
+        
+        /** @var User $item */
         $item = Auth::user();
 
         $data['photo'] = $request->file('photo')->store('assets/user', 'public');
