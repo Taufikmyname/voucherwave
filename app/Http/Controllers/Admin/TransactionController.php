@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Transaction;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Facade;
 use Yajra\DataTables\Facades\DataTables;
 
