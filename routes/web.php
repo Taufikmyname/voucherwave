@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardSettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +47,7 @@ route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard/transactions/{id}', 'DashboardTransactionController@details')->name('dashboard-transaction-details');
     Route::post('/dashboard/transactions/{id}', 'DashboardTransactionController@update')->name('dashboard-transaction-update');
 
-    Route::get('/dashboard/account', 'DashboardSettingController@account')->name('dashboard-account');
+    Route::get('/dashboard/account', [DashboardSettingController::class,'account'])->name('dashboard-account');
     Route::post('/dashboard/account/{redirect}', 'DashboardSettingController@update')->name('dashboard-account-redirect');
 
 });
