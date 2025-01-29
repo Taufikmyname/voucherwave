@@ -25,12 +25,9 @@
         </ul>
       </div>
 
-      <button type="button" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
-        <span class="sr-only">Open user menu</span>
-        <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
-      </button>
 
-      {{-- <div class="flex items-center lg:space-x-2">
+
+      <div class="flex items-center lg:space-x-2">
         <div class="flex items-center gap-4">
           <div class="sm:flex sm:gap-4">
             @guest
@@ -44,7 +41,11 @@
             @endguest
           </div>
           @auth
-              <ul class="navbar-nav d-none d-lg-flex">
+          <button type="button" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
+            <span class="sr-only">Open user menu</span>
+            <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+          </button>
+          <ul class="navbar-nav d-none d-lg-flex">
             <li class="nav-item dropdown">
               <a
                 href="#"
@@ -80,7 +81,7 @@
             <li class="nav-item">
               <a href="{{ route('cart') }}" class="nav-link d-inline-block mt-2">
                 @php
-                  $carts = \App\Cart::where('users_id', Auth::user()->id)->count();
+                  $carts = \App\Models\Cart::where('users_id', Auth::user()->id)->count();
                 @endphp
                 @if ($carts > 0)
                   <img src="/images/icon-cart-filled.svg" alt="" />
@@ -114,15 +115,16 @@
           </ul>
           @endauth
         </div>
-      </div> --}}
+      </div>
 
       
 
         
 
       <!-- Dropdown menu -->
-      <div class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown">
+      {{-- <div class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown">
         <div class="py-3 px-4">
+          @auth
             @if (Auth::user()->roles == 'ADMIN')  
               <a href="{{ route('admin-dashboard') }}" class="py-1 text-black dark:text-black">Hi, {{ Auth::user()->name }}</a>
             @else
@@ -156,6 +158,7 @@
                 </form>
             </li>
         </ul>
-      </div>
+        @endauth
+      </div> --}}
   </div>
 </nav>

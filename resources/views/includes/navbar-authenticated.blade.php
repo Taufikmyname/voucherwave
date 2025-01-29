@@ -47,7 +47,7 @@
                   >Settings</a
                 >
                 <div class="dropdown-divider"></div>
-                <a href="/" class="dropdown-item">Logout</a>
+                <a href="{{ route('logout') }}" class="dropdown-item">Logout</a>
               </div>
             </li>
             <li class="nav-item">
@@ -64,7 +64,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-inline-block">
+              <a href="" class="nav-link d-inline-block">
                 Cart
               </a>
             </li>
