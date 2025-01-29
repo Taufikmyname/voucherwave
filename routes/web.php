@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductGalleryController;
+use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\UserController;
+
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -7,6 +15,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardSettingController;
+use App\Models\Transaction;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,15 +66,15 @@ Route::prefix('admin')
     ->namespace('Admin')
     ->middleware(['auth','admin'])
     ->group(function() {
-        Route::get('dashboard', 'DashboardController@index')->name('admin-dashboard');
-        Route::resource('category', 'CategoryController');
-        Route::resource('user', 'UserController');
-        Route::resource('product', 'ProductController');
-        Route::resource('product-gallery', 'ProductGalleryController');
-        Route::resource('banner', 'BannerController');
-        Route::resource('transaction', 'TransactionController');
-        Route::get('transaction/details/{id}', 'DashboardController@details')->name('admin-transaction-details');
-        Route::post('transaction/details/{id}', 'DashboardController@update')->name('admin-transaction-details-update');
+        Route::get('dashboard', [AdminDashboardController::class,'index'])->name('admin-dashboard');
+        Route::resource('category', [AdminCategoryController::class]);
+        Route::resource('user', [UserController::class]);
+        Route::resource('product', [ProductController::class]);
+        Route::resource('product-gallery', [ProductGalleryController::class]);
+        Route::resource('banner', [BannerController::class]);
+        Route::resource('transaction', [TransactionController::class]);
+        Route::get('transaction/details/{id}', [AdminDashboardController::class,'details'])->name('admin-transaction-details');
+        Route::post('transaction/details/{id}', [AdminDashboardController::class,'update'])->name('admin-transaction-details-update');
     });
 
 Auth::routes();
