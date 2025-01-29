@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,8 +31,8 @@ route::group(['middleware' => ['auth']], function(){
 
     Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');
 
-    Route::get('/cart', 'CartController@index')->name('cart');
-    Route::post('/cart/{id}', 'CartController@delete')->name('cart-delete');
+    Route::get('/cart', [CartController::class,'index'])->name('cart');
+    Route::post('/cart/{id}', [CartController::class,'delete'])->name('cart-delete');
 
     Route::post('/checkout', 'CheckoutController@process')->name('checkout');
 
