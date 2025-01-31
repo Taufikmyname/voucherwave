@@ -13,7 +13,7 @@
         <link href="/style/main.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css"/>
     @stack('addon-style')
-
+    @vite(['resources/css/app.css','resources/js/app.js'])
   </head>
 
   <body>

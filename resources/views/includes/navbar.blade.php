@@ -42,9 +42,9 @@
           </div>
 
 
-          @auth
+          {{-- @auth
           <ul class="navbar-nav d-none d-lg-flex">
-            <li class="nav-item dropdown">
+            <li class="nav-item">
               <a
                 href="#"
                 class="nav-link"
@@ -61,9 +61,9 @@
               </a>
               <div class="dropdown-menu">
                 @if (Auth::user()->roles == 'ADMIN')  
-                  <a href="{{ route('admin-dashboard') }}" class="dropdown-item">Dashboard</a>
+                  <a href="{{ route('admin-dashboard') }}" class="inline-block rounded-lg px-6 py-3.5 text-center font-medium text-black hover:bg-primary-800 hover:text-white">Dashboard</a>
                 @else
-                <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="hidden sm:inline-flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-xs px-3 py-1.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Dashboard</a>
                 <a href="{{ route('dashboard-account') }}" class="dropdown-item"
                   >Settings</a
                 >
@@ -91,6 +91,7 @@
             </li>
             @endif
           </ul>
+          
 
           <ul class="navbar-nav d-block d-lg-none">
             <li class="nav-item">
@@ -113,33 +114,48 @@
           </ul>
           @endauth
         </div>
-      </div>
+      </div> --}}
 
       
 
         
-      {{-- <button type="button" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
+      <button type="button" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
         <span class="sr-only">Open user menu</span>
         <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
-      </button> --}}
+        @if ($user->photo != null)
+                  <img src="{{ Storage::url($user->photo) }}" class="rounded-circle mr-2 profile-picture">
+                @else
+                  <img src="/images/icon-testimonial-2.png" class="rounded-circle mr-2 profile-picture">
+                @endif
+                Hi, {{ Auth::user()->name }}
+      </button>
 
 
       <!-- Dropdown menu -->
-      {{-- <div class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown">
-        <div class="py-3 px-4">
+      <div class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown">
+        <div class="py-1 text-dark dark:text-gray-400">
           @auth
             @if (Auth::user()->roles == 'ADMIN')  
-              <a href="{{ route('admin-dashboard') }}" class="py-1 text-black dark:text-black">Hi, {{ Auth::user()->name }}</a>
+              <a href="{{ route('admin-dashboard') }}" class="block py-2 px-4 text-lg hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Dashboard</a>
             @else
-            <a href="{{ route('dashboard') }}" class="py-1 text-black dark:text-black">
-              Hi, {{ Auth::user()->name }}
+            <a href="{{ route('dashboard') }}" class="block py-2 px-4 text-lg hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+              Dashboard
             </a>
               <li>
-                <a href="{{ route('cart') }}" class="flex items-center py-4 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                <a href="{{ route('cart') }}" class="flex flex-row block py-2 px-4 text-lg hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
                   <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
                   </svg>
-                    Carts
+                  @php
+                  $carts = \App\Models\Cart::where('users_id', Auth::user()->id)->count();
+                  @endphp
+                  @if ($carts > 0)
+                    <img src="/images/icon-cart-filled.svg" alt="" />
+                    <div class="card-badge">{{ $carts }}</div>
+                  @else
+                    <img src="/images/icon-cart-empty.svg" alt="" />
+                  @endif
+                  <span class="pl-4">Carts</span>
                 </a>
               </li>
             @endif
@@ -152,7 +168,9 @@
                 <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Account settings</a>
             </li>
         </ul>
+        
 
+        
         <ul class="py-1 text-gray-500 dark:text-gray-400" aria-labelledby="dropdown">
             <li>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Log out</a>
@@ -162,7 +180,7 @@
             </li>
         </ul>
         @endauth
-      </div> --}}
+      </div>
     </div>
   </div>
 </nav>
