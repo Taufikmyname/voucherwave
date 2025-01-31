@@ -40,7 +40,7 @@ class CategoryController extends Controller
         $products = Product::with(['galleries'])->where('categories_id', $category->id)->paginate(32);
 
         return view('pages.category',[
-             'categories' => $categories,
+            'categories' => $categories,
             'products' => $products,
             'user' => $user
         ]);
