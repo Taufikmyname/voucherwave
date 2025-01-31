@@ -119,15 +119,17 @@
       
 
         
-      <button type="button" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
-        <span class="sr-only">Open user menu</span>
-        <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
-        @if ($user->photo != null)
-                  <img src="{{ Storage::url($user->photo) }}" class="rounded-circle mr-2 profile-picture">
-                @else
-                  <img src="/images/icon-testimonial-2.png" class="rounded-circle mr-2 profile-picture">
-                @endif
-                Hi, {{ Auth::user()->name }}
+      <button type="button" class="flex mx-3 text-sm bg-gray-800" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
+        @auth
+        <span class="py-2 px-4 bg-white text-lg hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+          @if ($user->photo != null)
+            <img src="{{ Storage::url($user->photo) }}" class="object-right w-8 h-8 rounded-full" alt="user photo">
+          @else
+            <img src="/images/icon-testimonial-2.png" class="object-left w-8 h-8 rounded-full" alt="user photo">
+          @endif
+          Hi, {{ Auth::user()->name }}
+        </span>
+        @endauth
       </button>
 
 
