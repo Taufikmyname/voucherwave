@@ -6,69 +6,61 @@ Voucher Wave Category Page
 
 @section('content')
     <!-- Page Content-->
-    <div class="page-content page-home">
-      <section class="store-categories mt-4">
-        <div class="container">
-          <div class="row">
-            <div class="col-12" data-aos="fade-up">
-              <h5>All Categories</h5>
-            </div>
-          </div>
-          <div class="row">
-            @php $incrementCategory = 0 @endphp
-            @forelse ($categories as $category)
-                <div class="col-6 col-md-3 col-lg-2" data-aos="fade-up" data-aos-delay="{{ $incrementCategory+= 100 }}">
-                  <a href="{{ route('categories-detail', $category->slug) }}" class="component-categories d-block">
-                    <div class="categories-image">
-                    <img src="{{ Storage::url($category->photo) }}" alt="" class="w-100" />
-                    </div>
-                    <p class="categories-text">{{ $category->name }}</p>
+    <div class="container mx-auto p-4">
+      <section class="mb-8">
+          <h2 class="text-xl font-semibold mb-4">Categories</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              @foreach ($categories as $category)
+                  <a href="{{ route('categories-detail', $category->slug) }}" class="block rounded-lg p-4 shadow-lg shadow-indigo-100">
+                      <img
+                          alt="{{ $category->name }}"
+                          src="{{ Storage::url($category->photo) }}"
+                          class="h-40 w-full rounded-md object-cover"
+                      />
+                      <p class="text-center mt-2 font-medium">{{ $category->name }}</p>
                   </a>
-                </div>
-            @empty
-                <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
-                  No Categories Found
-                </div>
-            @endforelse
+              @endforeach
           </div>
-        </div>
       </section>
-
-      <section class="store-new-products mt-2">
-        <div class="container">
-          <div class="row">
-            <div class="col-12" data-aos="fade-up">
-              <h5>All Products</h5>
-            </div>
-          </div>
-          <div class="row">
-            @php $incrementProduct = 0 @endphp
-            @forelse ($products as $product)
-                <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="{{ $incrementProduct+= 100 }}">
-                  <a href="{{ route('detail', $product->slug) }}" class="component-products d-block"
-                    ><div class="products-thumbnail">
-                    <div class="products-image" style="@if ($product->galleries->count())
-                        background-image: url('{{ Storage::url($product->galleries->first()->photo) }}')
-                      @else
-                        background-color: #eee
-                    @endif"></div>
-                    </div>
-                    <div class="products-text">{{ $product->name }}</div>
-                    <div class="products-price">Rp. {{number_format ($product->price) }}</div>
+  
+      <section>
+          <h2 class="text-xl font-semibold mb-4">Products</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              @foreach ($products as $product)
+                  <a href="{{ route('detail', $product->slug) }}" class="block rounded-lg p-4 shadow-lg shadow-indigo-100">
+                      <img
+                          alt="{{ $product->name }}"
+                          src="{{ $product->galleries->count() ? Storage::url($product->galleries->first()->photo) : 'https://via.placeholder.com/300' }}"
+                          class="h-56 w-full rounded-md object-cover"
+                      />
+  
+                      <div class="mt-2">
+                          <dl>
+                              <div>
+                                  <dt class="sr-only">Price</dt>
+                                  <dd class="text-sm text-gray-500">Rp. {{ number_format($product->price) }}</dd>
+                              </div>
+                              <div>
+                                  <dt class="sr-only">Product Name</dt>
+                                  <dd class="font-medium">{{ $product->name }}</dd>
+                              </div>
+                          </dl>
+                          <div class="mt-6 flex items-center gap-8 text-xs">
+                              <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                  <svg class="size-4 text-indigo-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                  </svg>
+                                  <div class="mt-1.5 sm:mt-0">
+                                      <p class="text-gray-500">Category</p>
+                                      <p class="font-medium">{{ $product->category->name ?? 'Uncategorized' }}</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
                   </a>
-                </div>
-            @empty
-                <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
-                  No Products Found
-                </div>
-            @endforelse
+              @endforeach
           </div>
-          <div class="row">
-            <div class="col-12 mt-4">
-              {{ $products->links() }}
-            </div>
-          </div>
-        </div>
       </section>
-    </div>
+  </div>
+  
 @endsection
