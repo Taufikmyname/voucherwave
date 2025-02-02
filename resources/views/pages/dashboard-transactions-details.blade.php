@@ -84,8 +84,8 @@ Voucher Wave Dashboard Transaction Detail
                           @endforeach
                           </div>
                           </div>
-                            {{-- @if ($transactions->transaction_status == "SUCCESS") --}}
-                            {{-- @if ($transaction->shipping_status == "PROCESS")
+                            @if ($transactions->transaction_status == "SUCCESS")
+                            @if ($transaction->shipping_status == "PROCESS")
                             <div class="row">
                               <div class="col-6 col-sm-5 col-md-7 col-lg-5">
                                 <div class="product-title">Confirm goods received</div>
@@ -95,14 +95,14 @@ Voucher Wave Dashboard Transaction Detail
                                 </select>
                               </div>
                             </div>
-                            @endif --}}
-                            {{-- @if ($transaction->shipping_status == "PROCESS")
+                            @endif
+                            @if ($transaction->shipping_status == "PROCESS")
                             <div class="row mt-3">
                                <div class="col-12">
                                  <button type="submit" class="btn btn-success">Save</button>
                                </div>
                             </div>
-                            @endif --}}
+                            @endif
                             @if (  $transactions->transaction_status == 'SUCCESS' )
                             <div class="row mt-4">
                             <div class="col-12">
