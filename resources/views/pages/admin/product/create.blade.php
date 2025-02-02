@@ -8,8 +8,8 @@
     <!-- Section Content-->
           <div class="section-content section-dashboard-home" data-aos="fade-up">
             <div class="container-fluid">
-                <h2 class=" text-xl font-bold text-gray-900 dark:text-white">My Account</h2>
-                <p class="mb-4 text-base text-gray-900 dark:text-white">Update your current profile</p>
+                <h2 class=" text-xl font-bold text-gray-900 dark:text-white">Product</h2>
+                <p class="mb-4 text-base text-gray-900 dark:text-white">Create New Product</p>
               <div class="dashboard-content">
                 <div class="row">
                     <div class="col-md-12">
