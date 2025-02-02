@@ -34,7 +34,7 @@ class CategoryController extends Controller
                             </a>
                             <form action="' . route('category.destroy', $item->id) . '" method="POST">
                                 ' . method_field('delete') . csrf_field() . '
-                                <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3 dropdown-item text-danger" onclick="return confirm(\'Are you sure?\')">
+                                <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3" onclick="return confirm(\'Are you sure?\')">
                                     Delete
                                 </button>
                             </form>

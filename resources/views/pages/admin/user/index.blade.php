@@ -21,7 +21,7 @@
                                 + Add New User
                                 </a>
                                 <div class="table-responsive">
-                                    <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
+                                    <table class="table table-hover scroll-horizontal-vertical w-100 text-center" id="crudTable">
                                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                             <tr>
                                                 <th scope="col" class="px-6 py-3">
