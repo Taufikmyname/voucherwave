@@ -26,33 +26,59 @@ class UserController extends Controller
             $query = User::query();
 
             return Datatables::of($query)
-                ->addColumn('action', function($item){
+                ->addColumn('action', function($item) {
                     return '
-                        <div class="btn-group">
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle mr-1 mb-1"
-                                        type="button"
-                                        data-toggle="dropdown">
-                                        Action
+                        <div class="flex items-center space-x-3">
+                            <a href="'.route('user.edit', $item->id).'" 
+                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                Edit
+                            </a>
+                            <form action="'.route('user.destroy', $item->id).'" method="POST" class="inline">
+                                '.csrf_field().'
+                                '.method_field('DELETE').'
+                                <button type="submit" 
+                                        class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
+                                        onclick="return confirm(\'Are you sure?\')">
+                                    Remove
                                 </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="' . route('user.edit', $item->id) . '">
-                                        Edit
-                                    </a>
-                                    <form action="' . route('user.destroy', $item->id) . '" method="POST">
-                                        ' . method_field('delete') . csrf_field() . '
-                                        <button type="submit" class="dropdown-item text-danger">
-                                            Delete
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     ';
+
+                //     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+
+                //     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                //         Apple MacBook Pro 17"
+                //     </th>
+                //     <td class="px-6 py-4">
+                //         Silver
+                //     </td>
+                //     <td class="px-6 py-4">
+                //         Laptop
+                //     </td>
+                //     <td class="px-6 py-4">
+                //         Yes
+                //     </td>
+                //     <td class="px-6 py-4">
+                //         Yes
+                //     </td>
+                //     <td class="px-6 py-4">
+                //         $2999
+                //     </td>
+                //     <td class="px-6 py-4">
+                //         3.0 lb.
+                //     </td>
+                //     <td class="flex items-center px-6 py-4">
+                //         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                //         <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                //     </td>
+                // </tr>
                 })
                 ->rawColumns(['action'])
                 ->make();
         }
+
+        
 
         return view('pages.admin.user.index');
     }

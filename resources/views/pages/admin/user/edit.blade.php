@@ -32,26 +32,26 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>User Name</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Name</label>
                                                 <input type="text" name="name" class="form-control" required value="{{ $item->name }}">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>User Email</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Email</label>
                                                 <input type="email" name="email" class="form-control" required value="{{ $item->email }}">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>User Password</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Password</label>
                                                 <input type="password" name="password" class="form-control">
-                                                <small>leave it blank if you don't want to change the password</small>
+                                                <small>Kosongkan jika tidak ingin diubah</small>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Roles</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Roles</label>
                                                 <select name="roles" required class="form-control">
                                                     <option value="{{ $item->roles }}" selected>not changed</option>
                                                     <option value="ADMIN">Admin</option>

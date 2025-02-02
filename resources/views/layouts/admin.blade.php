@@ -104,6 +104,7 @@
 
     <!-- Bootstrap core JavaScript -->
     @stack('prepend-script')
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
