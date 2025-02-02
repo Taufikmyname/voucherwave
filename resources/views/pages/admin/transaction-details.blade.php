@@ -10,8 +10,8 @@
             <div class="container-fluid">
             @foreach ($transaction as $transactions)
               <div class="dashboard-heading">
-                <h2 class="dashboard-title">#{{ $transactions->code }}</h2>
-                <p class="dashboard-subtitle">Transactions Details</p>
+                <h2 class=" text-xl font-bold text-gray-900 dark:text-white">#{{ $transactions->code }}</h2>
+                <p class="mb-4 text-base text-gray-900 dark:text-white">Transactions Details</p>
               </div>
               <div class="dashboard-content" id="transactionDetails">
                 <div class="row">

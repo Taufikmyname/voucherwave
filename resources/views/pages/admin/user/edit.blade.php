@@ -9,8 +9,8 @@
           <div class="section-content section-dashboard-home" data-aos="fade-up">
             <div class="container-fluid">
               <div class="dashboard-heading">
-                <h2 class="dashboard-title">User</h2>
-                <p class="dashboard-subtitle">Edit User</p>
+                <h2 class=" text-xl font-bold text-gray-900 dark:text-white">User</h2>
+                <p class="mb-4 text-base text-gray-900 dark:text-white">Edit User</p>
               </div>
               <div class="dashboard-content">
                 <div class="row">

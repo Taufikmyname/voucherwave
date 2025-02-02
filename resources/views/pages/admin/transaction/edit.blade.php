@@ -9,8 +9,8 @@
           <div class="section-content section-dashboard-home" data-aos="fade-up">
             <div class="container-fluid">
               <div class="dashboard-heading">
-                <h2 class="dashboard-title">Transaction</h2>
-                <p class="dashboard-subtitle">Edit Transaction</p>
+                <h2 class=" text-xl font-bold text-gray-900 dark:text-white">Transaction</h2>
+                <p class="mb-4 text-base text-gray-900 dark:text-white">Edit Transaction</p>
               </div>
               <div class="dashboard-content">
                 <div class="row">
@@ -32,7 +32,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Transaction Status</label>
+                                                <label> class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"Transaction Status</label>
                                                 <select name="transaction_status" class="form-control">
                                                     @if ($item->transaction_status == 'SUCCESS')
                                                     <option selected disabled value="{{ $item->transaction_status }}">{{ $item->transaction_status }}</option>
@@ -46,7 +46,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Total Price</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Total Price</label>
                                                 <input type="number" name="total_cost" class="form-control" value="{{ $item->total_cost }}" disabled>
                                             </div>
                                         </div>

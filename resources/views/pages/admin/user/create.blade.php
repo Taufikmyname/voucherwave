@@ -9,8 +9,8 @@
           <div class="section-content section-dashboard-home" data-aos="fade-up">
             <div class="container-fluid">
               <div class="dashboard-heading">
-                <h2 class="dashboard-title">User</h2>
-                <p class="dashboard-subtitle">Create New User</p>
+                <h2 class=" text-xl font-bold text-gray-900 dark:text-white">User</h2>
+                <p class="mb-4 text-base text-gray-900 dark:text-white">Create New User</p>
               </div>
               <div class="dashboard-content">
                 <div class="row">
@@ -31,25 +31,25 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>User Name</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Name</label>
                                                 <input type="text" name="name" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>User Email</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Email</label>
                                                 <input type="email" name="email" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>User Password</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Password</label>
                                                 <input type="password" name="password" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Roles</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Roles</label>
                                                 <select name="roles" required class="form-control">
                                                     <option value="ADMIN">Admin</option>
                                                     <option value="USER">User</option>

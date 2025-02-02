@@ -32,13 +32,13 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Product Name</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
                                                 <input type="text" name="name" class="form-control" value="{{ $item->name }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Product Category</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Category</label>
                                                 <select name="categories_id" class="form-control">
                                                     <option value="{{ $item->categories_id }}" selected>{{ $item->category->name }}</option>
                                                     @foreach ($categories as $category)
@@ -49,13 +49,13 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Product Price</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Price</label>
                                                 <input type="number" name="price" class="form-control" value="{{ $item->price }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Product Description</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Description</label>
                                                 <textarea name="description" id="editor">{!! $item->description !!}</textarea>
                                             </div>
                                         </div>

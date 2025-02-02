@@ -9,8 +9,8 @@
           <div class="section-content section-dashboard-home" data-aos="fade-up">
             <div class="container-fluid">
               <div class="dashboard-heading">
-                <h2 class="dashboard-title">Category</h2>
-                <p class="dashboard-subtitle">Edit Category</p>
+                <h2 class=" text-xl font-bold text-gray-900 dark:text-white">Category</h2>
+                <p class="mb-4 text-base text-gray-900 dark:text-white">Edit Category</p>
               </div>
               <div class="dashboard-content">
                 <div class="row">
@@ -32,13 +32,13 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Category Name</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category Name</label>
                                                 <input type="text" name="name" class="form-control" value="{{ $item->name }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Photo</label>
+                                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Photo</label>
                                                 <input type="file" name="photo" class="form-control">
                                             </div>
                                         </div>
