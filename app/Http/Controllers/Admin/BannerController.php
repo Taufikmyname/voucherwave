@@ -25,26 +25,30 @@ class BannerController extends Controller
             return DataTables::of($query)
                 ->addColumn('action', function($item) {
                     return '
-                        <div class="btn-group">
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle mr-1 mb-1"
-                                        type="button"
-                                        data-toggle="dropdown">
-                                    Action
+                        <div class="flex items-center space-x-3">
+                            <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="' . route('banner.edit', $item->id) . '">
+                                Edit
+                            </a>
+                            <form action="' . route('banner.destroy', $item->id) . '" method="POST">
+                                '. method_field('delete') . csrf_field() .'
+                                <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3" onclick="return confirm(\'Are you sure?\')">
+                                    Delete
                                 </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="' . route('banner.edit', $item->id) . '">
-                                        Edit
-                                    </a>
-                                    <form action="' . route('banner.destroy', $item->id) . '" method="POST">
-                                        '. method_field('delete') . csrf_field() .'
-                                    <button type="submit" class="dropdown-item text-danger">
-                                        Delete
-                                    </button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     ';
+
+                //     <div class="flex items-center space-x-3">
+                //     <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="' . route('category.edit', $item->id) . '">
+                //         Edit
+                //     </a>
+                //     <form action="' . route('category.destroy', $item->id) . '" method="POST">
+                //         ' . method_field('delete') . csrf_field() . '
+                //         <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3" onclick="return confirm(\'Are you sure?\')">
+                //             Delete
+                //         </button>
+                //     </form>
+                // </div>
                 })
                 ->editColumn('photo', function($item) {
                     return $item->photo ? '<img src="'. Storage::url($item->photo) .'" style="max-height: 48px;" />' : '';
