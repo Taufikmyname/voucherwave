@@ -6,121 +6,101 @@ Voucher Wave Cart Page
 
 @section('content')
     <!-- Page Content-->
-    <div class="page-content page-cart">
-      <section class="store-breadcrumbs" data-aos="fade-down" data-aos-delay="100">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <nav>
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item active">Cart</li>
-                </ol>
-              </nav>
-            </div>
-          </div>
-        </div>
+    <div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+      <!-- Breadcrumbs Section -->
+      <section class="mb-6">
+        <nav class="text-sm">
+          <ol class="flex space-x-2">
+            <li class="text-gray-500">Cart</li>
+          </ol>
+        </nav>
       </section>
-
-      <section class="store-cart">
-        <div class="container">
+    
+      <!-- Cart Items Section -->
+      <section>
         <form id="form" name="form" enctype="multipart/form-data" method="POST">
-            @csrf
+          @csrf
           @php $totalCost = 0 @endphp
           @foreach ($carts as $cart)
-          <div class="row" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-12 table-responsive">
-              <table class="table table-borderless table-cart">
-                <thead>
-                  <tr>
-                    <td>Image</td>
-                    <td>Name</td>
-                    <td>Price</td>
-                    <td>Menu</td>
-                  </tr>
-                </thead>
-                <tbody>
-                      <tr>
-                    <td style="width: 20%">@if ($cart->product->galleries)
-                      {{-- <img src="{{ Storage::url($cart->product->galleries->first()->photo) }}" alt="" class="cart-image"/> --}}
-                    @endif</td>
-                    <td style="width: 35%">
-                      <div class="product-title">{{ $cart->product->name }}</div>
-                    </td>
-                    <td style="width: 35%"><div class="product-price">Rp. {{ number_format($cart->product->price) }}</div>
-                    <div class="product-subtitle">IDR</div>
-                    </td>
-                    <td style="width: 20%">
-                      <button onclick="removeCart(this)" data-idcart="{{ $cart->id }}" class="btn btn-remove-cart"> Remove </button>
-                    </td>
-                  </tr>
-                   @php
-                    $totalCost += $cart->product->price
-                  @endphp
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="row" data-aos="fade-up" data-aos-delay="150">
-            <div class="col-12">  
-            </div>
-            <div class="col-12">
-              <h2 class="mb-4">Shipping Details</h2>
-            </div>
-          </div>
-          <input type="hidden" name="total_cost" value="{{ $totalCost }}">
-            <div class="row mb-2" data-aos="fade-up" data-aos-delay="200">
-            <div class="col-md-3">
-              <div class="form-group">
-                <label for="nickname">Nickname</label>
-                <input type="text" class="form-control" id="nickname" name="nickname[]"/>
+            <div class="mb-6">
+              <div class="overflow-x-auto">
+                <table class="w-full table-auto">
+                  <thead>
+                    <tr class="bg-gray-100">
+                      <th class="px-4 py-2 text-left">Image</th>
+                      <th class="px-4 py-2 text-left">Name</th>
+                      <th class="px-4 py-2 text-left">Price</th>
+                      <th class="px-4 py-2 text-left">Menu</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="px-4 py-2">
+                        @if ($cart->product->galleries)
+                          <img src="{{ Storage::url($cart->product->galleries->first()->photo) }}" alt="{{ $cart->product->name }}" class="w-16 h-16 object-cover rounded-lg"/>
+                        @endif
+                      </td>
+                      <td class="px-4 py-2">
+                        <div class="font-medium">{{ $cart->product->name }}</div>
+                      </td>
+                      <td class="px-4 py-2">
+                        <div class="font-medium">Rp. {{ number_format($cart->product->price) }}</div>
+                        <div class="text-sm text-gray-500">IDR</div>
+                      </td>
+                      <td class="px-4 py-2">
+                        <button onclick="removeCart(this)" data-idcart="{{ $cart->id }}" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">Remove</button>
+                      </td>
+                    </tr>
+                    @php
+                      $totalCost += $cart->product->price
+                    @endphp
+                  </tbody>
+                </table>
               </div>
             </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label for="game_id">ID Game</label>
-                <input type="text" class="form-control" id="game_id" name="game_id[]" />
+    
+            <!-- Shipping Details Section -->
+            <div class="mb-6">
+              <h2 class="text-xl font-semibold mb-4">Shipping Details</h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <label for="nickname" class="block text-sm font-medium text-gray-700">Nickname</label>
+                  <input type="text" id="nickname" name="nickname[]" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                </div>
+                <div>
+                  <label for="game_id" class="block text-sm font-medium text-gray-700">ID Game</label>
+                  <input type="text" id="game_id" name="game_id[]" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                </div>
+                <div>
+                  <label for="server_id" class="block text-sm font-medium text-gray-700">Server Game</label>
+                  <input type="text" id="server_id" name="server_id[]" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                </div>
+              </div>
+              <div class="mt-4">
+                <label for="phone_number" class="block text-sm font-medium text-gray-700">Nomor HP</label>
+                <input type="text" id="phone_number" name="phone_number" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
               </div>
             </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label for="server_id">Server Game</label>
-                <input type="text" class="form-control" id="server_id" name="server_id[]" />
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label for="phone_number">Mobile</label>
-                <input type="text" class="form-control" id="phone_number" name="phone_number" />
-              </div>
-            </div>
-          </div>
-          <div class="row" data-aos="fade-up" data-aos-delay="150">
-            <div class="col-12">
-              <hr />
-              @endforeach
-            </div>
-          <div class="container">
-          <div class="row" data-aos="fade-up" data-aos-delay="200">
+          @endforeach
+    
+          <!-- Payment Information Section -->
+          <div class="mt-8">
             @if ($totalCost != 0)
-            <div class="col-12">
-              <h2 class="mb-2">Payment Informations</h2>
-            </div>
-            <div class="col-12 col-md-4 col-lg-4">
-              <div class="product-title text-success">Rp. {{ number_format($totalCost ?? 0) }}</div>
-              <div class="product-subtitle">Total</div>
-            </div>
-            <div class="col-12 col-md-4 col-lg-4">
-              <button onclick="checkout()" type="button" class="btn btn-success mt-4 px-4 btn-block">Checkout Now</button>
-            </div>
+              <h2 class="text-xl font-semibold mb-4">Payment Information</h2>
+              <div class="flex justify-between items-center">
+                <div>
+                  <div class="text-2xl font-semibold text-green-600">Rp. {{ number_format($totalCost ?? 0) }}</div>
+                  <div class="text-sm text-gray-500">Total</div>
+                </div>
+                <button onclick="checkout()" type="button" class="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">Checkout Now</button>
+              </div>
             @else
-              <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
+              <div class="text-center py-6 text-gray-500">
                 No Items Found
               </div>
             @endif
           </div>
-          </div>  
         </form>
-        </div>
       </section>
     </div>
 @endsection
