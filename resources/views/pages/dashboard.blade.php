@@ -9,8 +9,8 @@
     <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
       <div class="container-fluid">
         <div class="dashboard-heading">
-          <h2 class="dashboard-title">Dashboard</h2>
-          <p class="dashboard-subtitle">Look what you have made today!</p>
+          <h2 class=" text-xl font-bold text-gray-900 dark:text-white">Dashboard</h2>
+          <p class="mb-4 text-base text-gray-900 dark:text-white">Look what you have made today!</p>
         </div>
         <div class="dashboard-content">
           <div class="row mt-3">

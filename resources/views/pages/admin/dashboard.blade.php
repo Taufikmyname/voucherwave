@@ -9,8 +9,8 @@ Voucher Wave Dashboard
           <div class="section-content section-dashboard-home" data-aos="fade-up">
             <div class="container-fluid">
               <div class="dashboard-heading">
-                <h2 class="dashboard-title">Admin Dashboard</h2>
-                <p class="dashboard-subtitle">This is Voucher Wave Administrator Panel</p>
+                <h2 class=" text-xl font-bold text-gray-900 dark:text-white">Admin Dashboard</h2>
+                <p class="mb-4 text-base text-gray-900 dark:text-white">This is Voucher Wave Administrator Panel</p>
               </div>
               <div class="dashboard-content">
                 <div class="row">

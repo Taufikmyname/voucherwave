@@ -9,8 +9,8 @@
           <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
             <div class="container-fluid">
               <div class="dashboard-heading">
-                <h2 class="dashboard-title">Transactions</h2>
-                <p class="dashboard-subtitle">Big result start from the small one</p>
+                <h2 class=" text-xl font-bold text-gray-900 dark:text-white">Transactions</h2>
+                <p class="mb-4 text-base text-gray-900 dark:text-white">Big result start from the small one</p>
               </div>
               <div class="dashboard-content">
                 <div class="row">
