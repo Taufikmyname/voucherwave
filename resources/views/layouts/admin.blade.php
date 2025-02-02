@@ -32,7 +32,7 @@
                   </a>
                 </li>
                 <li class="">
-                  <a href="{{ route('product.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ (request()->is('admin/product*')) ? 'bg-sky-400 text-dark' : '' }}">
+                  <a href="{{ route('product.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group {{ (request()->is('admin/product')) ? 'bg-sky-400 text-dark' : '' }}">
                       <span class="flex-1 ms-3 whitespace-nowrap">Product</span>
                   </a>
                 </li>
@@ -89,46 +89,6 @@
 
         <!-- Page Content-->
         <div id="page-content-wrapper">
-          <nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top" data-aos="fade-down">
-            <div class="container-fluid">
-              <button class="btn btn-secondary d-md-none mr-auto mr-2" id="menu-toggle">&laquo; Menu</button>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Desktop Menu -->
-                <ul class="navbar-nav d-none d-lg-flex ml-auto">
-                  <li class="nav-item dropdown">
-                    <a href="#" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown">
-                      <img src="/images/icon-testimonial-2.png" alt="" class="rounded-circle mr-2 profile-picture" />
-                      Hi, {{ Auth::user()->name }}
-                    </a>
-                    <div class="dropdown-menu">
-                      <a href="{{ route('home') }}" class="dropdown-item">Home</a>
-                      <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">Logout</a>
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
-                </form>
-                    </div>
-                  </li>
-                </ul>
-
-                <!-- Mobile Menu-->
-                <ul class="navbar-nav d-block d-lg-none">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link"> Hi, {{ Auth::user()->name }} </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link d-inline-block">Home</a>
-                  </li>
-                   <li class="nav-item">
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-
           {{-- Content --}}
           @yield('content')
 

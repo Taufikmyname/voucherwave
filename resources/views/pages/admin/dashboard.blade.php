@@ -6,7 +6,7 @@ Voucher Wave Dashboard
 
 @section('content')
     <!-- Section Content-->
-          <div class="section-content section-dashboard-home" data-aos="fade-up">
+          <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
             <div class="container-fluid">
               <div class="dashboard-heading">
                 <h2 class="dashboard-title">Admin Dashboard</h2>
