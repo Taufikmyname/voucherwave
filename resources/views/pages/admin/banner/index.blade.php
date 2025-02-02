@@ -46,7 +46,7 @@
     <script>
         var datatable = $('#crudTable').DataTable({
             processing: true,
-            serverside: true,
+            serverSide: true,
             ordering: true,
             ajax: {
                 url: '{!! url()->current() !!}',
@@ -86,7 +86,7 @@
                     name: 'action', 
                     className: 'px-6 py-4',
                     orderable: false,
-                    searcable: false,
+                    searchable: false,
                     width: '15%'
                 },
             ]

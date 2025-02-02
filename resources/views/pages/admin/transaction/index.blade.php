@@ -85,6 +85,7 @@
                 {
                     data: 'action',
                     name: 'action', 
+                    className: 'px-6 py-4',
                     orderable: false,
                     searchable: false,
                     width: '15%'
