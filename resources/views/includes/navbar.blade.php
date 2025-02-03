@@ -5,7 +5,7 @@
 
       <div class="flex items-center space-x-8">
         <div class="shrink-0">
-          <a href="#" title="" class="">
+          <a href="{{ route('home') }}" title="" class="">
             <img class="block w-16 h-16 dark:hidden rounded-full object-cover" src="{{ asset('images/VoucherWaveLogo.png') }}" alt="Logo">
             <img class="hidden w-16 h-16 dark:hidden rounded-full object-cover" src="{{ asset('images/VoucherWaveLogo.png') }}" alt="Dark Logo">
         </a>

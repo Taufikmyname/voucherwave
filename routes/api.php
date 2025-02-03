@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController as AuthRegisterController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('register/check', 'Auth\RegisterController@check')->name('api-register-check');
-Route::post('callback', 'CheckoutController@callback')->name('midtrans-callback');
+Route::get('register/check', [AuthRegisterController::class,'check'])->name('api-register-check');
+Route::post('callback', [CheckoutController::class,'callback'])->name('midtrans-callback');

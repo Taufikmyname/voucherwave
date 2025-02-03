@@ -70,6 +70,7 @@ class CheckoutController extends Controller
             foreach ( $request->nickname as $nickname ) {
                 $transactiondetail->update(['nickname' => $nickname]);
             }
+            
             foreach ( $request->server_id as $server_id ) {
                 $transactiondetail->update(['server_id' => $server_id]);
             }
@@ -77,37 +78,42 @@ class CheckoutController extends Controller
                 $transactiondetail->update(['game_id' => $game_id]);
             }   
 
+        
         //Delete Cart Data
         Cart::where('users_id', Auth::user()->id)->delete();
 
+        //Config Midtrans
         // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = 'YOUR_SERVER_KEY';
+        \Midtrans\Config::$serverKey = config('midtrans.serverKey');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
         \Midtrans\Config::$is3ds = true;
+
         
         //Make array to midtrans
-        $midtrans = [
-            'transaction_details' => [
+        $params = array(
+            'transaction_details' => array(
                 'order_id' => $code,
                 'gross_amount' => (int) $request->total_cost,
-            ],
-            'customer_details' => [
+            ),
+            'customer_details' => array(
                 'first_name' => Auth::user()->name,
                 'email' => Auth::user()->email,
-            ],
-            'enabled_payments' => [
+            ),
+            'enabled_payments' => array(
                 'gopay', 'bca_va', 'bank_transfer'
-            ],
-            'vtweb' => []
-        ];
+            ),
+            'vtweb' => array()
+        );
+
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
 
         try {
         // Get Snap Payment Page URL
-        $paymentUrl = Snap::createTransaction($midtrans)->redirect_url;
+        $paymentUrl = Snap::createTransaction($params)->redirect_url;
   
         // Redirect to Snap Payment Page
          return redirect($paymentUrl);
@@ -124,10 +130,14 @@ class CheckoutController extends Controller
         try {
             
         // Set configuration midtrans
-        Config::$serverKey = config('services.midtrans.serverKey');
-        Config::$isProduction = config('services.midtrans.isProduction');
-        Config::$isSanitized = config('services.midtrans.isSanitized');
-        Config::$is3ds = config('services.midtrans.is3ds');
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-Fhc3kYnLxOnr5-iBZCYlqZab';
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
 
         // Instance midtrans notification
         $notification = new Notification();

@@ -60,27 +60,36 @@ Voucher Wave Cart Page
             </div>
     
             <!-- Shipping Details Section -->
-            <div class="mb-6">
-              <h2 class="text-xl font-semibold mb-4">Shipping Details</h2>
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div>
-                  <label for="nickname" class="block text-sm font-medium text-gray-700">Nickname</label>
-                  <input type="text" id="nickname" name="nickname[]" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
-                </div>
-                <div>
-                  <label for="game_id" class="block text-sm font-medium text-gray-700">ID Game</label>
-                  <input type="text" id="game_id" name="game_id[]" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
-                </div>
-                <div>
-                  <label for="server_id" class="block text-sm font-medium text-gray-700">Server Game</label>
-                  <input type="text" id="server_id" name="server_id[]" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
-                </div>
+            <div class="row" data-aos="fade-up" data-aos-delay="150">
+              <div class="col-12">  
               </div>
-              <div class="mt-4">
-                <label for="phone_number" class="block text-sm font-medium text-gray-700">Nomor HP</label>
-                <input type="text" id="phone_number" name="phone_number" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+              <div class="col-12">
+                <h2 class="text-xl font-semibold mb-4">Shipping Details</h2>
               </div>
             </div>
+            
+            <input type="hidden" name="total_cost" value="{{ $totalCost }}">
+              <div class="mb-6">
+                <h2 class="text-xl font-semibold mb-4">Shipping Details</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label for="nickname" class="block text-sm font-medium text-gray-700">Nickname</label>
+                    <input type="text" id="nickname" name="nickname[]" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                  </div>
+                  <div>
+                    <label for="game_id" class="block text-sm font-medium text-gray-700">ID Game</label>
+                    <input type="text" id="game_id" name="game_id[]" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                  </div>
+                  <div>
+                    <label for="server_id" class="block text-sm font-medium text-gray-700">Server Game</label>
+                    <input type="text" id="server_id" name="server_id[]" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <label for="phone_number" class="block text-sm font-medium text-gray-700">Nomor HP</label>
+                  <input type="text" id="phone_number" name="phone_number" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"/>
+                </div>
+              </div>
           @endforeach
     
           <!-- Payment Information Section -->
