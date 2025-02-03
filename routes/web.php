@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController as AuthRegisterController;
 use App\Http\Middleware\IsAdmin;
 use App\Models\User;
 use App\Models\Transaction;
@@ -9,10 +10,11 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardTransactionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardSettingController;
+
 
 //Admin-Controller
 use App\Http\Controllers\Admin\BannerController;
@@ -41,20 +43,21 @@ Route::get('/categories/{id}', [CategoryController::class,'detail'])->name('cate
 Route::get('/details/{id}', [DetailController::class,'index'])->name('detail');
 Route::post('/details/{id}', [DetailController::class,'add'])->name('detail-add');
 
-Route::post('/checkout/callback', 'CheckoutController@callback')->name('midtrans-callback');
+Route::post('/checkout/callback', [CheckoutController::class,'callback'])->name('midtrans-callback');
 
 
 Auth::routes();
+
 route::group(['middleware' => ['auth']], function(){
 
-    Route::get('/register/success', 'Auth\RegisterController@success')->name('register-success');
+    Route::get('/register/success', [AuthRegisterController::class,'success'])->name('register-success');
 
     Route::get('/cart', [CartController::class,'index'])->name('cart');
     Route::post('/cart/{id}', [CartController::class,'delete'])->name('cart-delete');
 
-    Route::post('/checkout', 'CheckoutController@process')->name('checkout');
+    Route::post('/checkout', [CheckoutController::class,'process'])->name('checkout');
 
-    Route::get('/success', 'CartController@success')->name('success');
+    Route::get('/success', [CartController::class,'success'])->name('success');
 
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
 
