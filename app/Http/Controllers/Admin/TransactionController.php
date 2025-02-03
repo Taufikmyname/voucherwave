@@ -24,6 +24,9 @@ class TransactionController extends Controller
                 ->addColumn('action', function($item){
                     return '
                         <div class="flex items-center space-x-3">
+                            <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="' . route('admin-transaction-edit', $item->id) . '">
+                                Edit
+                            </a>
                             <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="' . route('admin-transaction-details', $item->id) . '">
                                 Detail
                             </a>
@@ -83,12 +86,12 @@ class TransactionController extends Controller
      */
     public function edit($id)
     {
-        // $item = Transaction::findOrFail($id);
+        $item = Transaction::findOrFail($id);
         
 
-        // return view('pages.admin.transaction.edit', [
-        //     'item' => $item
-        // ]);
+        return view('pages.admin.transaction.edit', [
+            'item' => $item
+        ]);
     }
 
     /**

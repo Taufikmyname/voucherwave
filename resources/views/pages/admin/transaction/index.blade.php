@@ -81,7 +81,7 @@
                 {data: 'user.name', name: 'user.name', className: 'px-6 py-4' },
                 {data: 'total_cost', name: 'total_cost', className: 'px-6 py-4' },
                 {data: 'transaction_status', name: 'transaction_status', className: 'px-6 py-4' },
-                {data: 'created_at', name: 'created_at', className: 'px-6 py-4' },
+                {data: 'created_at', name: 'created_at', className: 'px-6 py-4 ' },
                 {
                     data: 'action',
                     name: 'action', 

@@ -88,6 +88,7 @@ Route::prefix('admin')
 
         // Custom transaction routes
         Route::get('transaction/details/{id}', [AdminDashboardController::class, 'details'])->name('admin-transaction-details');
+        Route::get('/admin/transaction/{id}/edit', [TransactionController::class, 'edit'])->name('admin-transaction-edit');
         Route::post('transaction/details/{id}', [AdminDashboardController::class, 'update'])->name('admin-transaction-details-update');
     });
 

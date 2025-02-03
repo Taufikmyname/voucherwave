@@ -14,8 +14,6 @@
           </div>
   
           <div class="mt-8">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recent Transactions</h3>
-              
               <div class="overflow-x-auto rounded-lg shadow">
                   <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                       <thead class="bg-gray-50 dark:bg-gray-800">
