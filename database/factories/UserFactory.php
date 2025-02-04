@@ -5,6 +5,8 @@
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,9 @@ use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
+
+    protected $model = User::class;
+
 public function definition(): array {
     return [
         'name' => fake()->name(),
