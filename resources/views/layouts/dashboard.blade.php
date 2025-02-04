@@ -8,6 +8,7 @@
 
     <title>@yield('title')</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.js"></script>
     @stack('prepend-style')
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
         <link href="/style/main.css" rel="stylesheet" />
