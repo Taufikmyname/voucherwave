@@ -42,7 +42,7 @@
           <!-- Shipping Information -->
           <div class="mt-6">
               <h5 class="mb-4">Shipping Information</h5>
-              <form method="POST" action="{{ route('admin-transaction-details-update', $transactions->id) }}">
+              <form method="POST" action="{{ route('admin-transaction-details-update', $transactions->id) }}" enctype="multipart/form-data>
                   @csrf
                   @foreach ($transactionDetail as $transaction)
                   <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 rounded-lg mb-4">

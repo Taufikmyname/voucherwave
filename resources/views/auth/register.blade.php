@@ -8,7 +8,7 @@
               <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                   Create an account
               </h1>
-              <form method="POST" action="{{ route('register') }}" class="space-y-4 md:space-y-6">
+              <form method="POST" action="{{ route('register') }}" class="space-y-4 md:space-y-6" enctype="multipart/form-data>
                   @csrf
                   <div>
                     <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full Name</label>

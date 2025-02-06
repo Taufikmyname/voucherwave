@@ -8,7 +8,7 @@
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                     Log in to your account
                 </h1>
-                <form method="POST" action="{{ route('login') }}" class="space-y-4 md:space-y-6">
+                <form method="POST" action="{{ route('login') }}" class="space-y-4 md:space-y-6" enctype="multipart/form-data>
                     @csrf
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
@@ -45,7 +45,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}" enctype="multipart/form-data>
                         @csrf
 
                         <div class="form-group row">
